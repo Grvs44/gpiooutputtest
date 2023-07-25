@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gpiooutputtest"
+version = "0.0.1"
+authors = [
+  { name="Joe Greaves" },
+]
+description = "Individually test the given GPIO output pins"
+readme = "README.md"
+requires-python = ">=3.11,<4"
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: BSD License",
+  "Operating System :: POSIX :: Linux",
+]
+dependencies = [
+  "RPi.GPIO>=0.7.1",
+]
+
+[project.scripts]
+gpiooutputtest = "gpiooutputtest:main"
+
+[project.urls]
+"Homepage" = "https://github.com/Grvs44/gpiooutputtest"
