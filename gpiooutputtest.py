@@ -16,8 +16,17 @@ def main():
         nargs='+',
         help='The list of pins to test'
     )
+    parser.add_argument(
+        '-b',
+        '--bcm',
+        action='store_true',
+        help='Set the GPIO mode to BCM rather than BOARD'
+    )
     args = parser.parse_args()
-    gpio.setmode(gpio.BOARD)
+    if hasattr(args, 'b') and args.b or hasattr(args, 'bcm') and args.bcm:
+        gpio.setmode(gpio.BCM)
+    else:
+        gpio.setmode(gpio.BOARD)
     for pin in args.pins:
         print('Testing pin', pin)
         gpio.setup(pin, gpio.OUT)
